@@ -12,6 +12,18 @@ const TextForm = (props) => {
     setText(newTxt);
   };
 
+  const handleCopy = (event) => {
+    let txt = document.getElementById('exampleFormControlTextarea1');
+    txt.select();
+    navigator.clipboard.writeText(txt.value);
+  };
+
+  const handleExtraSpaces = (event) => {
+    let txts=text.split(/[ ]+/);
+    let newTxt = txts.join(' ');
+    setText(newTxt);
+  };
+
   const handleUpCase = (event) => {
     text && setText(text.toUpperCase());
   };
@@ -33,21 +45,35 @@ const TextForm = (props) => {
           ></textarea>
           <button
             type="button"
-            class={`btn btn-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
+            class={`btn btn-outline-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
             onClick={handleUpCase}
           >
             Convert To UpperCase
           </button>
           <button
             type="button"
-            class={`btn btn-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
+            class={`btn btn-outline-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
             onClick={handleLoCase}
           >
             Convert To LowerCase
           </button>
           <button
             type="button"
-            class={`btn btn-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
+            class={`btn btn-outline-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
+            onClick={handleExtraSpaces}
+          >
+            Remove Extra Spaces
+          </button>
+          <button
+            type="button"
+            class={`btn btn-outline-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
+            onClick={handleCopy}
+          >
+            Copy Text
+          </button>
+          <button
+            type="button"
+            class={`btn btn-outline-${props.mode==='light'?'dark':'light'} my-3 mx-2`}
             onClick={handleClear}
           >
             Clear

@@ -8,20 +8,21 @@ import { useState } from "react";
 export default function App() {
   const [mode, setMode] = useState('light');
 
-  const setDarkMode=()=>{
-    if(mode==='light')
-    {
+  const setDarkMode = () => {
+    if (mode === 'light') {
       setMode('dark');
-      document.body.style.backgroundColor='#343a40';
-    }else{
+      document.body.style.backgroundColor = '#343a40';
+
+    } else {
+
       setMode('light');
-      document.body.style.backgroundColor='#ffffff';
+      document.body.style.backgroundColor = '#ffffff';
     }
   }
-   return (
+  return (
     <>
-      <Navbar title="TextUtils" mode={mode} setDarkMode={setDarkMode}/>
-      <TextForm mode={mode}/>
+      <Navbar title="TextUtils" mode={mode} setDarkMode={setDarkMode} />
+      <TextForm mode={mode} />
       {/* <AboutTextUtils/> */}
     </>
   );
